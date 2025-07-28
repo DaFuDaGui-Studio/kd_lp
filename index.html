@@ -41,89 +41,89 @@
 
 
     @layer components {
-      .text-sm-10 { /* sm 10px */  
+      .text-kd-10 { /* 10px / line-height: 150% */  
         @apply text-[0.625rem] leading-3.75;
       }
 
-      .text-sm-12 { /* sm 12px */  
+      .text-kd-12 { /* 12px / line-height: 150% */  
         @apply text-xs leading-4.5;
       }
 
-      .text-sm-14 { /* sm 14px */  
+      .text-kd-14 { /* 14px / line-height: 150% */  
         @apply text-sm leading-5.25;
       }
 
-      .text-sm-16 { /* sm 16px */  
+      .text-kd-16 { /* 16px / line-height: 150% */  
         @apply text-base leading-6;
       }
 
-      .text-sm-20 { /* sm 20px */  
+      .text-kd-20 { /* 20px / line-height: 150% */  
         @apply text-xl leading-7.5;
       }
 
-      .text-md-16 { /* md 16px */  
-        @apply md:text-base md:leading-6;
+      .text-kd-sm-16 { /* sm size 16px / line-height: 150% */  
+        @apply sm:text-base sm:leading-6;
       }
 
-      .text-md-20 { /* md 20px */  
-        @apply md:text-xl md:leading-7.5;
+      .text-kd-sm-20 { /* sm size 20px / line-height: 150% */  
+        @apply sm:text-xl sm:leading-7.5;
       }
 
-      .text-md-24 { /* md 24px */  
-        @apply md:text-2xl md:leading-9;
+      .text-kd-sm-24 { /* sm size 24px / line-height: 150% */  
+        @apply sm:text-2xl sm:leading-9;
       }
 
-      .text-md-26 { /* md 26px */  
-        @apply md:text-[1.625rem];
+      .text-kd-sm-26 { /* sm size 26px */  
+        @apply sm:text-[1.625rem];
       }
 
-      .text-md-28 { /* md 28x */  
-        @apply md:text-[1.75rem] md:leading-10.5;
+      .text-kd-sm-28 { /* sm size 28px / line-height: 150% */  
+        @apply sm:text-[1.75rem] sm:leading-10.5;
       }
 
-      .text-md-30 { /* md 30px */  
-        @apply md:text-3xl md:leading-11.25;
+      .text-kd-sm-30 { /* sm size 30px / line-height: 150% */  
+        @apply sm:text-3xl sm:leading-11.25;
       }
 
-      .text-md-40 { /* md 40px */  
-        @apply md:text-[2.5rem] md:leading-15;
+      .text-kd-sm-40 { /* sm size 40px / line-height: 150% */  
+        @apply sm:text-[2.5rem] sm:leading-15;
       }
     }
   </style>
 </head>
 <body>
-    <header class="py-7.5 md:p-12.5">
-      <div class="mx-auto md:mx-0 w-fit">
-        <img src="assets/icons/logo.svg" alt="Logo" class="h-7.5 md:h-15 w-auto" />
+    <header class="py-7.5 sm:p-12.5">
+      <div class="mx-auto sm:mx-0 w-fit">
+        <img src="assets/icons/logo.svg" alt="Logo" class="h-7.5 sm:h-15 w-auto" />
       </div>
     </header>
 
-    <section class="flex justify-center items-center gap-x-3.75 w-full py-5 md:pt-6.25 md:pb-7.5 bg-yellow">
-      <p class="outline outline-stone w-4.5 md:w-6.75 p-0.75 md:p-1.25 text-center text-stone text-wrap text-xxs leading-2.5 md:leading-4 md:text-base">無料</p>
-      <p class="text-sm-20 text-md-30 text-stone font-medium">参加登録フォームへ </p>
-      <a href="#form" class="block size-6.25 md:size-8.75">
+    <section class="flex justify-center items-center gap-x-3.75 w-full py-5 sm:pt-6.25 sm:pb-7.5 bg-yellow">
+      <p class="outline outline-stone w-4.5 sm:w-6.75 p-0.75 sm:p-1.25 text-center text-stone text-wrap text-xxs leading-2.5 sm:leading-4 sm:text-base">無料</p>
+      <p class="text-kd-sm-20 text-kd-sm-30 text-stone font-medium">参加登録フォームへ </p>
+      <a href="#form" class="block size-6.25 sm:size-8.75">
         <img src="assets/icons/arrow-down-with-bg.svg" alt="Logo" class="size-full object-cover" />
       </a>
     </section>
 
-    <section class="flex justify-center items-center gap-x-3.75 w-full py-5 md:pt-6.25 md:pb-7.5 bg-yellow">
-      <p class="outline outline-stone w-4.5 md:w-6.75 p-0.75 md:p-1.25 text-center text-stone text-wrap text-xxs leading-2.5 md:leading-4 md:text-base">無料</p>
-      <p class="text-sm-20 text-md-30 text-stone font-medium">参加登録フォームへ </p>
-      <a href="#form" class="block size-6.25 md:size-8.75">
+    <section class="flex justify-center items-center gap-x-3.75 w-full py-5 sm:pt-6.25 sm:pb-7.5 bg-yellow">
+      <p class="outline outline-stone w-4.5 sm:w-6.75 p-0.75 sm:p-1.25 text-center text-stone text-wrap text-xxs leading-2.5 sm:leading-4 sm:text-base">無料</p>
+      <p class="text-kd-sm-20 text-kd-sm-30 text-stone font-medium">参加登録フォームへ </p>
+      <a href="#form" class="block size-6.25 sm:size-8.75">
         <img src="assets/icons/arrow-down-with-bg.svg" alt="Logo" class="size-full object-cover" />
       </a>
     </section>
 
-    <section class="flex justify-center items-center gap-x-3.75 w-full py-5 md:pt-6.25 md:pb-7.5 bg-yellow">
-      <p class="outline outline-stone w-4.5 md:w-6.75 p-0.75 md:p-1.25 text-center text-stone text-wrap text-xxs leading-2.5 md:leading-4 md:text-base">無料</p>
-      <p class="text-sm-20 text-md-30 text-stone font-medium">参加登録フォームへ </p>
-      <a href="#form" class="block size-6.25 md:size-8.75">
+    <section class="flex justify-center items-center gap-x-3.75 w-full py-5 sm:pt-6.25 sm:pb-7.5 bg-yellow">
+      <p class="outline outline-stone w-4.5 sm:w-6.75 p-0.75 sm:p-1.25 text-center text-stone text-wrap text-xxs leading-2.5 sm:leading-4 sm:text-base">無料</p>
+      <p class="text-kd-sm-20 text-kd-sm-30 text-stone font-medium">参加登録フォームへ </p>
+      <a href="#form" class="block size-6.25 sm:size-8.75">
         <img src="assets/icons/arrow-down-with-bg.svg" alt="Logo" class="size-full object-cover" />
       </a>
     </section>
     
-    <footer class="flex items-center w-full h-22.5 md:h-57.5 px-7.5 md:px-0 bg-stone">
-      <p class="w-full text-center text-white font-medium text-sm-10 text-md-20">Copyright © 2025 Keding Enterprises Co., Ltd. All rights reserved.</p>
+    <footer class="flex items-center w-full h-22.5 sm:h-57.5 px-7.5 sm:px-0 bg-stone">
+      <p class="w-full text-center text-white font-medium text-kd-10 text-kd-sm-20">Copyright © 2025 Keding Enterprises Co., Ltd. All rights reserved.</p>
     </footer>
 </body>
 </html>
