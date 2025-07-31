@@ -88,35 +88,210 @@
       .text-kd-sm-40 { /* sm size 40px / line-height: 150% */  
         @apply sm:text-[2.5rem] sm:leading-15;
       }
+
+      .swiper-pagination-bullet {
+        background: white !important; 
+        border: 1px solid #4D403E;
+        opacity: 1 !important; 
+        width: 0.9375rem !important;
+        height: 0.9375rem !important;
+        margin: 0px 0.375rem !important;
+      }
+      @media (max-width: 639px) {
+        .swiper-pagination-bullet {
+          width: 8px !important;
+          height: 8px !important;
+        }
+      }
+  
+      .swiper-pagination-bullet-active {
+        background: #4D403E !important; 
+        transform: scale(1.2);
+      }
     }
   </style>
 </head>
-<body>
+<body class="max-w-[90rem] mx-auto min-h-screen" x-init="$store.sheet.fetch()">
     <header class="py-7.5 sm:p-12.5">
       <div class="mx-auto sm:mx-0 w-fit">
         <img src="assets/icons/logo.svg" alt="Logo" class="h-7.5 sm:h-15 w-auto" />
       </div>
     </header>
+    <!-- Banner -->
+    <section>
+      <div class="">
+        <img src="assets/banner_desktop.png" alt="" class="w-full hidden sm:block" />
+        <img src="assets/banner_mobile.png" alt="" class="w-full block sm:hidden" />
+      </div>
+    </section>
 
-    <section class="flex justify-center items-center gap-x-3.75 w-full py-5 sm:pt-6.25 sm:pb-7.5 bg-yellow">
+    <!-- Registration -->
+    <section class="flex justify-center items-center gap-x-3.75 w-full py-5 sm:pt-6.25 sm:pb-7.5 bg-yellow" x-data>
       <p class="outline outline-stone w-4.5 sm:w-6.75 p-0.75 sm:p-1.25 text-center text-stone text-wrap text-xxs leading-2.5 sm:leading-4 sm:text-base">無料</p>
-      <p class="text-kd-sm-20 text-kd-sm-30 text-stone font-medium">参加登録フォームへ </p>
+      <p class="text-kd-sm-20 text-kd-sm-30 text-stone font-medium" x-text="$store.sheet.rows[1][3] || '参加登録フォームへ'"></p>
+      <a href="#form" class="block size-6.25 sm:size-8.75">
+        <img src="assets/icons/arrow-down-with-bg.svg" alt="Logo" class="size-full object-cover" />
+      </a>
+    </section>
+    
+
+    <!-- Seminar -->
+    <section x-data>
+      <div class="m-[1.875rem] mb-[1.25rem] sm:mt-[6.25rem] sm:ml-[15%]">
+        <h2 class="text-kd-16 text-kd-sm-30 font-m-plus mb-[0.25rem] " x-text="$store.sheet.rows[1][2] || 'About the Seminar'"></h2>
+        <div class="flex items-end">
+          <h1 class="text-kd-20 text-kd-sm-40 font-m-plus font-bold" x-text="$store.sheet.rows[1][1] || 'セミナー概要'"></h1>
+          <img src="assets/icons/Rectangle.svg" alt="" class="object-cover w-[1.25rem] h-[1.25rem] ml-[0.3125rem]" />
+        </div>
+        
+      </div> 
+      <div class="m-[1.875rem] sm:mt-[3.125rem] sm:mx-[15%] lg:ml-[15%] lg:mr-0 lg:mr-[10.4%] lg:mb-[6.25rem] lg:grid items-center lg:grid-cols-[56%_10%_34%]">
+        <div>
+          <p class="text-kd-12 text-kd-sm-24 font-m-plus">建材業界において、設計・施工現場での差別化がますます重要になる中、求められているのは「意匠性」「施工性」「持続可能性」を兼ね備えた素材です。台湾上場企業・株式会社ケディンが提供する装飾建材は、SGS認証取得済／曲げ加工対応／144色展開といった特徴により、欧米をはじめ多くの高級空間で採用されています。<br><br> 
+            本ウェビナーでは、実際の代理店成功事例や、商品特性、加盟後の営業支援体制までを包括的にご紹介。<br> 
+            「在庫・店舗なしで始められる建材ビジネス」のリアルを、経営・提案・現場の3つの視点から具体的にお伝えします。
+          </p>
+
+        </div>
+        <div class="hidden lg:block"></div>
+        <div>
+          <!--carousel-->
+          <div class="" x-data="{
+            items: [
+              {
+                image: 'assets/seminar_1.png',
+                title: '高意匠対応ラミネート素材',
+              },
+              {
+                image: 'assets/seminar_2.png',              
+                title: 'エッジまで美しい一体感',
+              },
+              {
+                image: 'assets/seminar_3.png',              
+                title: '曲げやすい',             
+              }
+            ],
+            initSwiper() {
+              this.$nextTick(() => {
+                new Swiper('.seminar-carousel', {
+                  loop: true,
+                  pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                  }
+                });
+              });
+            }
+          }" x-init="initSwiper()">
+            <div class="swiper seminar-carousel swiper-container">
+              <div class="swiper-wrapper">
+                <template x-for="(item, index) in items" :key="`seminar_${index}`">
+                  <div class="swiper-slide">
+                    <div class="">
+                      <img :src="item.image" class="mx-auto mt-[1.25rem] mb-[0.625rem] pl-[12%] pr-[12%]">
+                      <span class="flex justify-center items-center mb-[3.75rem] text-kd-10 text-kd-sm-20" x-text="item.title"> </span>
+                    </div>
+                  </div>
+                </template>
+              </div>
+              <div class="swiper-pagination "></div>
+            </div>
+          </div>
+  
+
+        </div>
+      </div>
+    </section>
+    <!-- 開催日時 -->
+    <section>
+      <div class="">
+        <img src="assets/eventDate_desktop.png" alt="" class="w-full hidden sm:block" />
+        <img src="assets/eventDate_mobile.png" alt="" class="w-full block sm:hidden" />
+      </div>
+    </section>
+
+    <!-- Registration -->
+    <section class="flex justify-center items-center gap-x-3.75 w-full py-5 sm:pt-6.25 sm:pb-7.5 bg-yellow" x-data>
+      <p class="outline outline-stone w-4.5 sm:w-6.75 p-0.75 sm:p-1.25 text-center text-stone text-wrap text-xxs leading-2.5 sm:leading-4 sm:text-base">無料</p>
+      <p class="text-kd-sm-20 text-kd-sm-30 text-stone font-medium" x-text="$store.sheet.rows[1][3] || '参加登録フォームへ'"></p>
       <a href="#form" class="block size-6.25 sm:size-8.75">
         <img src="assets/icons/arrow-down-with-bg.svg" alt="Logo" class="size-full object-cover" />
       </a>
     </section>
 
-    <section class="flex justify-center items-center gap-x-3.75 w-full py-5 sm:pt-6.25 sm:pb-7.5 bg-yellow">
-      <p class="outline outline-stone w-4.5 sm:w-6.75 p-0.75 sm:p-1.25 text-center text-stone text-wrap text-xxs leading-2.5 sm:leading-4 sm:text-base">無料</p>
-      <p class="text-kd-sm-20 text-kd-sm-30 text-stone font-medium">参加登録フォームへ </p>
-      <a href="#form" class="block size-6.25 sm:size-8.75">
-        <img src="assets/icons/arrow-down-with-bg.svg" alt="Logo" class="size-full object-cover" />
-      </a>
-    </section>
+    <!-- 成功事例 -->
+    <section>
+      <div class="m-[1.875rem] mb-[3.75rem] sm:mx-[15%] sm:my-[6.25rem]">
+        <div class="flex items-end sm:mb-[3.125rem]">
+          <h1 class="text-kd-20 text-kd-sm-40 font-m-plus font-bold">成功パートナーの事例</h1>
+          <img src="assets/icons/Rectangle.svg" alt="" class="object-cover w-[1.25rem] h-[1.25rem] ml-[0.3125rem]" />
+        </div>
+        <div><!--carousel-->
+          <div class="" x-data="{
+            items: [
+              {
+                image: 'assets/success_1.png',
+                title: '3.19 HOMES, SOCIEDAD LIMITADA',
+                location:'マドリッド、スペイン',
+                des:'マドリードの中心で、IT業界と飲食業界から思い切って新たな挑戦に踏み出した二人の兄弟が、「3.19 HOMES, SOCIEDAD LIMITADA」を設立し、インテリア表面材の世界に飛び込みました。\n\n建材業界での経験は全くなかったものの、「サステナビリティ」という共通の想いを持っていた彼らは、ある展示会で台湾のケディンと出会い、その環境にやさしく高品質な突板パネルに強く惹かれました。可能性を感じた二人は、すぐに台湾本社を訪問し、2024年12月1日に正式にパートナーシップを締結しました。\n\nextTickケディンによる研修、戦略、ブランディングなど、包括的なサポートを受け、3.19 HOMESは急速に成長。売上目標を上回る成果を達成し、今ではマドリードの建築家やデザイナーにとって信頼できるサプライヤーとして確立しています。\n\n共通の価値観と適切なサポートがあれば、大胆な一歩が持続可能な成功へとつながる——彼らのストーリーがそれを証明しています。'
+              },
+              {
+                image: 'assets/success_2.png',              
+                title: 'Vulcan Building Materials',
+                location:'ドバイ、アラブ首長国連邦',
+                des:'アラブ首長国連邦（UAE）におけるケディンのもう一つの成功事例が、現地の大手建材サプライヤーである Vulcan Building Materials とのパートナーシップです。鉄鋼、コンクリート、石材ベニヤなどの建設資材を主に取り扱ってきたVulcanは、新たにインテリア表面材分野への事業拡大を目指していました。彼らが求めていたのは、単なる製品ではなく、デザインの柔軟性、革新性、そしてサステナブルな品質を備えたソリューションでした。\n\n複数の国際ブランドを比較検討した結果、彼らが選んだのはケディンでした。両社のビジョンが一致し、2025年2月5日には台北のケディン本社にて正式な契約式が執り行われました。ECO+ラミネートシリーズを皮切りに、柔軟で多様な質感を持つケディンの製品群はすぐに高い評価を獲得。初回1,500枚を超える発注により、販売目標は即座に達成されました。\n\n現在、Vulcanはさらなる商品ラインの展開に積極的に取り組んでおり、UAE市場におけるポートフォリオの拡大を進めています。このパートナーシップは、信頼・革新・共通の成長目標を大切にするケディンのグローバル展開のあり方を象徴する事例といえるでしょう。'
+              }
+            ],
+            initSwiper() {
+              this.$nextTick(() => {
+                new Swiper('.success-carousel', {
+                  loop: true,
+                  pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                  }
+                });
+              });
+            }
+          }" x-init="initSwiper()">
+            <div class="swiper success-carousel swiper-container">
+              <div class="swiper-wrapper">
+                <template x-for="(item, index) in items" :key="`success_${index}`">
+                  <div class="swiper-slide">
+                    <div>
+                      <div class="grid grid-cols-1 my-[1.25rem]">
+                        <div class="place-items-center block sm:flex sm:mb-[1.875rem]">
+                          <img :src="item.image" class="w-[6.25rem] h-[6.25rem] mb-[0.625rem] sm:mb-0 sm:w-[12.5rem] sm:h-[12.5rem]">
+                          <div class="sm:ml-[2.0625rem]">
+                            <p x-text="item.title" class="font-m-plus text-center sm:text-left font-bold text-kd-16 text-kd-sm-30 mb-[0.625rem] sm:mb-0"></p>
+                            <div class="flex items-center justify-center sm:justify-start sm:mt-[1.25rem]">
+                              <img src="assets/icons/location.svg" alt="" class="object-cover w-[0.75rem] h-[1rem] mr-[0.625rem] sm:w-[1.5rem] sm:h-[2rem]" />
+                              <p x-text="item.location" class="font-m-plus font-bold text-kd-10 text-kd-sm-20 text-orange"> </p>
+                            </div>
+                          </div>
+                        </div>
+                        
+                      </div>
+                      <p class="flex justify-center items-center mb-[4.375rem] text-kd-10 text-kd-sm-20 whitespace-pre-line font-m-plus" x-text="item.des"> </p>
+                    </div>
+                  </div>
+                </template>
+              </div>
+              <div class="swiper-pagination"></div>
+            </div>
+          </div>
 
-    <section class="flex justify-center items-center gap-x-3.75 w-full py-5 sm:pt-6.25 sm:pb-7.5 bg-yellow">
+
+        </div>
+
+      </div>
+
+    </section>
+    
+    <!-- Registration -->
+    <section class="flex justify-center items-center gap-x-3.75 w-full py-5 sm:pt-6.25 sm:pb-7.5 bg-yellow" x-data>
       <p class="outline outline-stone w-4.5 sm:w-6.75 p-0.75 sm:p-1.25 text-center text-stone text-wrap text-xxs leading-2.5 sm:leading-4 sm:text-base">無料</p>
-      <p class="text-kd-sm-20 text-kd-sm-30 text-stone font-medium">参加登録フォームへ </p>
+      <p class="text-kd-sm-20 text-kd-sm-30 text-stone font-medium" x-text="$store.sheet.rows[1][3] || '参加登録フォームへ'"></p>
       <a href="#form" class="block size-6.25 sm:size-8.75">
         <img src="assets/icons/arrow-down-with-bg.svg" alt="Logo" class="size-full object-cover" />
       </a>
@@ -126,4 +301,19 @@
       <p class="w-full text-center text-white font-medium text-kd-10 text-kd-sm-20">Copyright © 2025 Keding Enterprises Co., Ltd. All rights reserved.</p>
     </footer>
 </body>
+<script>
+  document.addEventListener('alpine:init', () => {
+    Alpine.store('sheet', {
+      rows: [],
+      async fetch() {
+        const sheet_id = '1nVO6-QRWNJsMC90Jwxe8yg3AglOMlAH_38xnc9LonrY'
+        const url = `https://docs.google.com/spreadsheets/d/${sheet_id}/gviz/tq?tqx=out:json`;
+        const res = await fetch(url);
+        const text = await res.text();
+        const json = JSON.parse(text.replace(/^[^\(]*\(/, '').replace(/\);$/, ''));
+        this.rows = json.table.rows.map(r => r.c.map(c => c ? c.v : ''));
+      }
+    });
+  });
+</script>
 </html>
