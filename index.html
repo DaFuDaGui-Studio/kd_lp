@@ -1,168 +1,232 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>KD landing page</title>
-  <!-- Font -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=M+PLUS+1:wght@100..900&display=swap" rel="stylesheet">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>KD landing page</title>
+    <!-- Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=M+PLUS+1:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
 
-  <!-- Tailwind -->
-  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- Tailwind -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 
-  <!-- Alpine -->
-  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.8/dist/cdn.min.js"></script>
-  
-  <!-- swiper -->
-  <link href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" rel="stylesheet" />
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <!-- Alpine -->
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.8/dist/cdn.min.js"
+    ></script>
 
-  <style type="text/tailwindcss">
-    @theme {
-      --text-xxs: 0.625rem; /* text 10px */
-      --font-m-plus: "M PLUS 1", sans-serif;
-      --font-dm-sans: "DM Sans", sans-serif;
-      --color-yellow: #FFDB00;
-      --color-stone: #534741;
-      --color-orange: #FF4D1B;
-      --color-gray: #888888;
-    }
+    <!-- swiper -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
-    @layer base {
-      html {
-        font-size: 16px;
-        @apply text-stone font-m-plus leading-[0.9375rem] tracking-[0.05rem]
-      }
-    }
-    
-
-    [x-cloak] { display: none; }
-
-
-    @layer components {
-      .text-kd-10 { /* 10px / line-height: 150% */  
-        @apply text-[0.625rem] leading-3.75;
+    <style type="text/tailwindcss">
+      @theme {
+        --text-xxs: 0.625rem; /* text 10px */
+        --font-m-plus: "M PLUS 1", sans-serif;
+        --font-dm-sans: "DM Sans", sans-serif;
+        --color-yellow: #ffdb00;
+        --color-stone: #534741;
+        --color-orange: #ff4d1b;
+        --color-gray: #888888;
       }
 
-      .text-kd-12 { /* 12px / line-height: 150% */  
-        @apply text-xs leading-4.5;
-      }
-
-      .text-kd-14 { /* 14px / line-height: 150% */  
-        @apply text-sm leading-5.25;
-      }
-
-      .text-kd-16 { /* 16px / line-height: 150% */  
-        @apply text-base leading-6;
-      }
-
-      .text-kd-20 { /* 20px / line-height: 150% */  
-        @apply text-xl leading-7.5;
-      }
-
-      .text-kd-sm-16 { /* sm size 16px / line-height: 150% */  
-        @apply sm:text-base sm:leading-6;
-      }
-
-      .text-kd-sm-20 { /* sm size 20px / line-height: 150% */  
-        @apply sm:text-xl sm:leading-7.5;
-      }
-
-      .text-kd-sm-24 { /* sm size 24px / line-height: 150% */  
-        @apply sm:text-2xl sm:leading-9;
-      }
-
-      .text-kd-sm-26 { /* sm size 26px */  
-        @apply sm:text-[1.625rem] sm:leading-9.75;
-      }
-
-      .text-kd-sm-28 { /* sm size 28px / line-height: 150% */  
-        @apply sm:text-[1.75rem] sm:leading-10.5;
-      }
-
-      .text-kd-sm-30 { /* sm size 30px / line-height: 150% */  
-        @apply sm:text-3xl sm:leading-11.25;
-      }
-
-      .text-kd-sm-40 { /* sm size 40px / line-height: 150% */  
-        @apply sm:text-[2.5rem] sm:leading-15;
-      }
-
-      .swiper-pagination-bullet {
-        background: white !important; 
-        border: 1px solid #4D403E;
-        opacity: 1 !important; 
-        width: 0.9375rem !important;
-        height: 0.9375rem !important;
-        margin: 0px 0.375rem !important;
-      }
-      @media (max-width: 639px) {
-        .swiper-pagination-bullet {
-          width: 8px !important;
-          height: 8px !important;
+      @layer base {
+        html {
+          font-size: 16px;
+          @apply text-stone font-m-plus leading-[0.9375rem] tracking-[0.05rem];
         }
       }
-  
-      .swiper-pagination-bullet-active {
-        background: #4D403E !important; 
-        transform: scale(1.2);
+
+      [x-cloak] {
+        display: none;
       }
 
-      .form_select {
-        -webkit-appearance: none;
+      @layer components {
+        .text-kd-10 {
+          /* 10px / line-height: 150% */
+          @apply text-[0.625rem] leading-3.75;
+        }
+
+        .text-kd-12 {
+          /* 12px / line-height: 150% */
+          @apply text-xs leading-4.5;
+        }
+
+        .text-kd-14 {
+          /* 14px / line-height: 150% */
+          @apply text-sm leading-5.25;
+        }
+
+        .text-kd-16 {
+          /* 16px / line-height: 150% */
+          @apply text-base leading-6;
+        }
+
+        .text-kd-20 {
+          /* 20px / line-height: 150% */
+          @apply text-xl leading-7.5;
+        }
+
+        .text-kd-sm-16 {
+          /* sm size 16px / line-height: 150% */
+          @apply sm:text-base sm:leading-6;
+        }
+
+        .text-kd-sm-20 {
+          /* sm size 20px / line-height: 150% */
+          @apply sm:text-xl sm:leading-7.5;
+        }
+
+        .text-kd-sm-24 {
+          /* sm size 24px / line-height: 150% */
+          @apply sm:text-2xl sm:leading-9;
+        }
+
+        .text-kd-sm-26 {
+          /* sm size 26px */
+          @apply sm:text-[1.625rem] sm:leading-9.75;
+        }
+
+        .text-kd-sm-28 {
+          /* sm size 28px / line-height: 150% */
+          @apply sm:text-[1.75rem] sm:leading-10.5;
+        }
+
+        .text-kd-sm-30 {
+          /* sm size 30px / line-height: 150% */
+          @apply sm:text-3xl sm:leading-11.25;
+        }
+
+        .text-kd-sm-40 {
+          /* sm size 40px / line-height: 150% */
+          @apply sm:text-[2.5rem] sm:leading-15;
+        }
+
+        .swiper-pagination-bullet {
+          background: white !important;
+          border: 1px solid #4d403e;
+          opacity: 1 !important;
+          width: 0.9375rem !important;
+          height: 0.9375rem !important;
+          margin: 0px 0.375rem !important;
+        }
+        @media (max-width: 639px) {
+          .swiper-pagination-bullet {
+            width: 8px !important;
+            height: 8px !important;
+          }
+        }
+
+        .swiper-pagination-bullet-active {
+          background: #4d403e !important;
+          transform: scale(1.2);
+        }
+
+        .form_select {
+          -webkit-appearance: none;
+        }
       }
-    }
-  </style>
-</head>
-<body class="max-w-[90rem] mx-auto min-h-screen" x-data x-init="$store.sheet.fetch()">
-  <header class="py-7.5 sm:p-12.5">
-    <div class="mx-auto sm:mx-0 w-fit">
-      <img src="assets/icons/logo.svg" alt="Logo" class="h-7.5 sm:h-15 w-auto" />
-    </div>
-  </header>
-  <!-- Banner -->
-  <section>
-    <div class="">
-      <img src="assets/banner_desktop.png" alt="" class="w-full hidden sm:block" />
-      <img src="assets/banner_mobile.png" alt="" class="w-full block sm:hidden" />
-    </div>
-  </section>
+    </style>
+  </head>
 
-  <!-- Registration -->
-  <section class="flex justify-center items-center gap-x-3.75 w-full py-5 sm:pt-6.25 sm:pb-7.5 bg-yellow">
-    <p class="outline outline-stone w-4.5 sm:w-6.75 p-0.75 sm:p-1.25 text-center text-stone text-wrap text-xxs leading-2.5 sm:leading-4 sm:text-base">無料</p>
-    <a href="#form" class="flex items-center gap-x-3.75">
-      <p class="text-kd-sm-20 text-kd-sm-30 text-stone font-medium" x-text="$store.sheet.anchorToForm"></p>
-      <div class="size-6.25 sm:size-8.75">
-        <img src="assets/icons/arrow-down-with-bg.svg" alt="Logo" class="size-full object-cover" />
+  <body
+    class="max-w-[90rem] mx-auto min-h-screen"
+    x-data
+    x-init="$store.sheet.fetch()"
+  >
+    <header class="py-7.5 sm:p-12.5">
+      <div class="mx-auto sm:mx-0 w-fit">
+        <img
+          src="assets/icons/logo.svg"
+          alt="Logo"
+          class="h-7.5 sm:h-15 w-auto"
+        />
       </div>
-    </a>
-  </section>
-  
-  <!-- Seminar -->
-  <section>
-    <div class="m-[1.875rem] mb-[1.25rem] sm:mt-[6.25rem] sm:ml-[15%]">
-      <h2 class="text-kd-16 text-kd-sm-30 font-m-plus mb-[0.25rem] " x-text="$store.sheet.rows[1][2] || 'About the Seminar'"></h2>
-      <div class="flex items-end">
-        <h1 class="text-kd-20 text-kd-sm-40 font-m-plus font-bold" x-text="$store.sheet.rows[1][1] || 'セミナー概要'"></h1>
-        <img src="assets/icons/rect.svg" alt="" class="object-cover w-[1.25rem] h-[1.25rem] ml-[0.3125rem]" />
+    </header>
+    <!-- Banner -->
+    <section>
+      <div class="">
+        <img
+          src="assets/banner_desktop.png"
+          alt=""
+          class="w-full hidden sm:block"
+        />
+        <img
+          src="assets/banner_mobile.png"
+          alt=""
+          class="w-full block sm:hidden"
+        />
       </div>
-      
-    </div> 
-    <div class="m-[1.875rem] sm:mt-[3.125rem] sm:mx-[15%] lg:ml-[15%] lg:mr-0 lg:mr-[10.4%] lg:mb-[6.25rem] lg:grid items-center lg:grid-cols-[56%_10%_34%]">
-      <div>
-        <p class="text-kd-12 text-kd-sm-24 font-m-plus">建材業界において、設計・施工現場での差別化がますます重要になる中、求められているのは「意匠性」「施工性」「持続可能性」を兼ね備えた素材です。台湾上場企業・株式会社ケディンが提供する装飾建材は、SGS認証取得済／曲げ加工対応／144色展開といった特徴により、欧米をはじめ多くの高級空間で採用されています。<br><br> 
-          本ウェビナーでは、実際の代理店成功事例や、商品特性、加盟後の営業支援体制までを包括的にご紹介。<br> 
-          「在庫・店舗なしで始められる建材ビジネス」のリアルを、経営・提案・現場の3つの視点から具体的にお伝えします。
-        </p>
+    </section>
 
+    <!-- Registration -->
+    <section
+      class="flex justify-center items-center gap-x-3.75 w-full py-5 sm:pt-6.25 sm:pb-7.5 bg-yellow"
+    >
+      <p
+        class="outline outline-stone w-4.5 sm:w-6.75 p-0.75 sm:p-1.25 text-center text-stone text-wrap text-xxs leading-2.5 sm:leading-4 sm:text-base"
+      >
+        無料
+      </p>
+      <a href="#form" class="flex items-center gap-x-3.75">
+        <p
+          class="text-kd-sm-20 text-kd-sm-30 text-stone font-medium"
+          x-text="$store.sheet.anchorToForm"
+        ></p>
+        <div class="size-6.25 sm:size-8.75">
+          <img
+            src="assets/icons/arrow-down-with-bg.svg"
+            alt="Logo"
+            class="size-full object-cover"
+          />
+        </div>
+      </a>
+    </section>
+
+    <!-- Seminar -->
+    <section>
+      <div class="m-[1.875rem] mb-[1.25rem] sm:mt-[6.25rem] sm:ml-[15%]">
+        <h2
+          class="text-kd-16 text-kd-sm-30 font-m-plus mb-[0.25rem]"
+          x-text="$store.sheet.rows[1][2] || 'About the Seminar'"
+        ></h2>
+        <div class="flex items-end">
+          <h1
+            class="text-kd-20 text-kd-sm-40 font-m-plus font-bold"
+            x-text="$store.sheet.rows[1][1] || 'セミナー概要'"
+          ></h1>
+          <img
+            src="assets/icons/rect.svg"
+            alt=""
+            class="object-cover w-[1.25rem] h-[1.25rem] ml-[0.3125rem]"
+          />
+        </div>
       </div>
-      <div class="hidden lg:block"></div>
-      <div>
-        <!--carousel-->
-        <div class="" x-data="{
+      <div
+        class="m-[1.875rem] sm:mt-[3.125rem] sm:mx-[15%] lg:ml-[15%] lg:mr-0 lg:mr-[10.4%] lg:mb-[6.25rem] lg:grid items-center lg:grid-cols-[56%_10%_34%]"
+      >
+        <div>
+          <p class="text-kd-12 text-kd-sm-24 font-m-plus">
+            建材業界において、設計・施工現場での差別化がますます重要になる中、求められているのは「意匠性」「施工性」「持続可能性」を兼ね備えた素材です。台湾上場企業・株式会社ケディンが提供する装飾建材は、SGS認証取得済／曲げ加工対応／144色展開といった特徴により、欧米をはじめ多くの高級空間で採用されています。<br /><br />
+            本ウェビナーでは、実際の代理店成功事例や、商品特性、加盟後の営業支援体制までを包括的にご紹介。<br />
+            「在庫・店舗なしで始められる建材ビジネス」のリアルを、経営・提案・現場の3つの視点から具体的にお伝えします。
+          </p>
+        </div>
+        <div class="hidden lg:block"></div>
+        <div>
+          <!--carousel-->
+          <div
+            class=""
+            x-data="{
           items: [
             {
               image: 'assets/seminar_1.png',
@@ -188,131 +252,230 @@
               });
             });
           }
-        }" x-init="initSwiper()">
-          <div class="swiper seminar-carousel swiper-container">
-            <div class="swiper-wrapper">
-              <template x-for="(item, index) in items" :key="`seminar_${index}`">
-                <div class="swiper-slide">
-                  <div class="">
-                    <img :src="item.image" class="mx-auto mt-[1.25rem] mb-[0.625rem] pl-[12%] pr-[12%]">
-                    <span class="flex justify-center items-center mb-[3.75rem] text-kd-10 text-kd-sm-20" x-text="item.title"> </span>
+        }"
+            x-init="initSwiper()"
+          >
+            <div class="swiper seminar-carousel swiper-container">
+              <div class="swiper-wrapper">
+                <template
+                  x-for="(item, index) in items"
+                  :key="`seminar_${index}`"
+                >
+                  <div class="swiper-slide">
+                    <div class="">
+                      <img
+                        :src="item.image"
+                        class="mx-auto mt-[1.25rem] mb-[0.625rem] pl-[12%] pr-[12%]"
+                      />
+                      <span
+                        class="flex justify-center items-center mb-[3.75rem] text-kd-10 text-kd-sm-20"
+                        x-text="item.title"
+                      >
+                      </span>
+                    </div>
                   </div>
-                </div>
-              </template>
+                </template>
+              </div>
+              <div class="swiper-pagination"></div>
             </div>
-            <div class="swiper-pagination "></div>
-          </div>
-        </div>
-
-
-      </div>
-    </div>
-  </section>
-
-  <!-- 開催日時 -->
-  <section>
-    <div class="">
-      <img src="assets/eventDate_desktop.png" alt="" class="w-full hidden sm:block" />
-      <img src="assets/eventDate_mobile.png" alt="" class="w-full block sm:hidden" />
-    </div>
-  </section>
-
-  <!-- Registration -->
-  <section class="flex justify-center items-center gap-x-3.75 w-full py-5 sm:pt-6.25 sm:pb-7.5 bg-yellow">
-    <p class="outline outline-stone w-4.5 sm:w-6.75 p-0.75 sm:p-1.25 text-center text-stone text-wrap text-xxs leading-2.5 sm:leading-4 sm:text-base">無料</p>
-    <a href="#form" class="flex items-center gap-x-3.75">
-      <p class="text-kd-sm-20 text-kd-sm-30 text-stone font-medium" x-text="$store.sheet.anchorToForm"></p>
-      <div class="size-6.25 sm:size-8.75">
-        <img src="assets/icons/arrow-down-with-bg.svg" alt="Logo" class="size-full object-cover" />
-      </div>
-    </a>
-  </section>
-
-  <!-- recommended -->
-  <section class="relative max-w-[1440px]">
-    <div class="-z-1 absolute bottom-0 left-0 w-screen max-w-[1440px] h-[225vw] max-h-180 sm:h-[745vw] sm:max-h-270 bg-[#F8F8F8]"></div>
-    
-    <div class="relative max-w-250 mx-auto py-7.5 sm:py-25 px-7.5">
-      <div class="flex items-end gap-x-1.25">
-        <h2 class="text-kd-20 text-kd-sm-40 font-bold">こんなお悩みがある方におすすめ</h2>
-        <div class="size-5"><img src="assets/icons/rect.svg" class="size-full" /></div>
-      </div>
-
-      <div class="relative hidden sm:flex mt-12.5">
-        <div class="absolute top-0 right-0"><img src="assets/images/quotation_marks.png" class="w-7.5 h-auto" /></div>
-        <div class="absolute bottom-0 right-0"><img src="assets/images/yellow_line.png" class="w-7.5 h-37.5" /></div>
-        <div class="flex flex-col items-center w-[45%] drop-shadow-[-15px_15px_0px_rgba(255,191,0,1)]">
-          <div><img src="assets/images/recommended_md_1.png" class="w-full h-auto" /></div>
-        </div>
-        <div class="w-[3%] h-full"></div>
-        <div class="w-[45%] drop-shadow-[-15px_15px_0px_rgba(255,191,0,1)]">
-          <div><img src="assets/images/recommended_md_2.png" class="w-full h-auto" /></div>
-        </div>
-      </div>
-
-      <div class="grid sm:hidden gap-y-5 mt-5">
-        <div class="drop-shadow-[-8.48px_8.48px_0px_rgba(255,191,0,1)]">
-          <img src="assets/images/recommended_1.png" class="w-full h-auto"/>
-        </div>
-
-        <div class="drop-shadow-[-8.48px_8.48px_0px_rgba(255,191,0,1)]">
-          <img src="assets/images/recommended_2.png" class="w-full h-auto"/>
-        </div>
-      </div>
-
-      <div class="flex items-end gap-x-1.25 mt-7.5 sm:mt-25">
-        <h2 class="text-kd-20 text-kd-sm-40 font-bold" x-text="$store.sheet.whatYouGain"></h2>
-        <div class="size-5"><img src="assets/icons/rect.svg" class="size-full" /></div>
-      </div>
-
-      <div class="divide-y divide-dotted divide-[#B5B5B5]">
-        <div class="flex gap-x-3.75 py-5 sm:py-7.5">
-          <div class="w-3.75 sm:w-6.25 mt-0 sm:mt-1.75">
-            <img src="assets//icons/chechbox-checked.svg" class="min-w-3.75 size-3.75 sm:min-w-6.5 sm:size-6.25"/>
-          </div>
-          <div>
-            <p class="text-sm leading-3.5 sm:text-[1.625rem] sm:leading-9.75 font-medium">アジアを中心に拡大を続ける成長中の建材市場のトレンド情報とポテンシャル</p>
-          </div>
-        </div>
-        <div class="flex gap-x-3.75 py-5 sm:py-7.5">
-          <div class="w-3.75 sm:w-6.25 mt-0 sm:mt-1.75">
-            <img src="assets//icons/chechbox-checked.svg" class="min-w-3.75 size-3.75 sm:min-w-6.5 sm:size-6.25"/>
-          </div>
-          <div>
-            <p class="text-sm leading-3.5 sm:text-[1.625rem] sm:leading-9.75 font-medium">成功パートナーの事例から得た、再現性があり成功する建材ビジネスのヒント</p>
-            <p class="mt-2.5 sm:mt-5 text-kd-12 text-kd-sm-20">初年度から大きく業績を伸ばした加盟店の事例をもとに、実在の事例から再現性のあるビジネス展開を学べます。</p>
-          </div>
-        </div>
-        <div class="flex gap-x-3.75 py-5 sm:py-7.5">
-          <div class="w-3.75 sm:w-6.25 mt-0 sm:mt-1.75">
-            <img src="assets//icons/chechbox-checked.svg" class="min-w-3.75 size-3.75 sm:min-w-6.5 sm:size-6.25"/>
-          </div>
-          <div>
-            <p class="text-sm leading-3.5 sm:text-[1.625rem] sm:leading-9.75 font-medium">プロが選ぶ建材、エコ ＋ ラミネートの魅力と実績</p>
-          </div>
-        </div>
-        <div class="flex gap-x-3.75 pt-5 sm:pt-7.5">
-          <div class="w-3.75 sm:w-6.25 mt-0 sm:mt-1.75">
-            <img src="assets//icons/chechbox-checked.svg" class="min-w-3.75 size-3.75 sm:min-w-6.5 sm:size-6.25"/>
-          </div>
-          <div>
-            <p class="text-sm leading-3.5 sm:text-[1.625rem] sm:leading-9.75 font-medium">安心して始められるサポート体制</p>
-            <p class="mt-2.5 sm:mt-5 text-kd-12 text-kd-sm-20">未経験でも取り組める理由とは？営業支援・顧客紹介・販促ツールなど、実際のサポート内容を具体的に紹介。</p>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- 成功事例 -->
-  <section>
-    <div class="m-[1.875rem] mb-[3.75rem] sm:mx-[15%] sm:my-[6.25rem]">
-      <div class="flex items-end sm:mb-[3.125rem]">
-        <h1 class="text-kd-20 text-kd-sm-40 font-m-plus font-bold">成功パートナーの事例</h1>
-        <img src="assets/icons/rect.svg" alt="" class="object-cover w-[1.25rem] h-[1.25rem] ml-[0.3125rem]" />
+    <!-- 開催日時 -->
+    <section>
+      <div class="">
+        <img
+          src="assets/eventDate_desktop.png"
+          alt=""
+          class="w-full hidden sm:block"
+        />
+        <img
+          src="assets/eventDate_mobile.png"
+          alt=""
+          class="w-full block sm:hidden"
+        />
       </div>
-      <div><!--carousel-->
-        <div class="" x-data="{
+    </section>
+
+    <!-- Registration -->
+    <section
+      class="flex justify-center items-center gap-x-3.75 w-full py-5 sm:pt-6.25 sm:pb-7.5 bg-yellow"
+    >
+      <p
+        class="outline outline-stone w-4.5 sm:w-6.75 p-0.75 sm:p-1.25 text-center text-stone text-wrap text-xxs leading-2.5 sm:leading-4 sm:text-base"
+      >
+        無料
+      </p>
+      <a href="#form" class="flex items-center gap-x-3.75">
+        <p
+          class="text-kd-sm-20 text-kd-sm-30 text-stone font-medium"
+          x-text="$store.sheet.anchorToForm"
+        ></p>
+        <div class="size-6.25 sm:size-8.75">
+          <img
+            src="assets/icons/arrow-down-with-bg.svg"
+            alt="Logo"
+            class="size-full object-cover"
+          />
+        </div>
+      </a>
+    </section>
+
+    <!-- recommended -->
+    <section class="relative max-w-[1440px]">
+      <div
+        class="-z-1 absolute bottom-0 left-0 w-screen max-w-[1440px] h-[225vw] max-h-180 sm:h-[745vw] sm:max-h-270 bg-[#F8F8F8]"
+      ></div>
+
+      <div class="relative max-w-250 mx-auto py-7.5 sm:py-25 px-7.5">
+        <div class="flex items-end gap-x-1.25">
+          <h2 class="text-kd-20 text-kd-sm-40 font-bold">
+            こんなお悩みがある方におすすめ
+          </h2>
+          <div class="size-5">
+            <img src="assets/icons/rect.svg" class="size-full" />
+          </div>
+        </div>
+
+        <div class="relative hidden sm:flex mt-12.5">
+          <div class="absolute top-0 right-0">
+            <img src="assets/images/quotation_marks.png" class="w-7.5 h-auto" />
+          </div>
+          <div class="absolute bottom-0 right-0">
+            <img src="assets/images/yellow_line.png" class="w-7.5 h-37.5" />
+          </div>
+          <div
+            class="flex flex-col items-center w-[45%] drop-shadow-[-15px_15px_0px_rgba(255,191,0,1)]"
+          >
+            <div>
+              <img
+                src="assets/images/recommended_md_1.png"
+                class="w-full h-auto"
+              />
+            </div>
+          </div>
+          <div class="w-[3%] h-full"></div>
+          <div class="w-[45%] drop-shadow-[-15px_15px_0px_rgba(255,191,0,1)]">
+            <div>
+              <img
+                src="assets/images/recommended_md_2.png"
+                class="w-full h-auto"
+              />
+            </div>
+          </div>
+        </div>
+
+        <div class="grid sm:hidden gap-y-5 mt-5">
+          <div class="drop-shadow-[-8.48px_8.48px_0px_rgba(255,191,0,1)]">
+            <img src="assets/images/recommended_1.png" class="w-full h-auto" />
+          </div>
+
+          <div class="drop-shadow-[-8.48px_8.48px_0px_rgba(255,191,0,1)]">
+            <img src="assets/images/recommended_2.png" class="w-full h-auto" />
+          </div>
+        </div>
+
+        <div class="flex items-end gap-x-1.25 mt-7.5 sm:mt-25">
+          <h2
+            class="text-kd-20 text-kd-sm-40 font-bold"
+            x-text="$store.sheet.whatYouGain"
+          ></h2>
+          <div class="size-5">
+            <img src="assets/icons/rect.svg" class="size-full" />
+          </div>
+        </div>
+
+        <div class="divide-y divide-dotted divide-[#B5B5B5]">
+          <div class="flex gap-x-3.75 py-5 sm:py-7.5">
+            <div class="w-3.75 sm:w-6.25 mt-0 sm:mt-1.75">
+              <img
+                src="assets//icons/chechbox-checked.svg"
+                class="min-w-3.75 size-3.75 sm:min-w-6.5 sm:size-6.25"
+              />
+            </div>
+            <div>
+              <p
+                class="text-sm leading-3.5 sm:text-[1.625rem] sm:leading-9.75 font-medium"
+              >
+                アジアを中心に拡大を続ける成長中の建材市場のトレンド情報とポテンシャル
+              </p>
+            </div>
+          </div>
+          <div class="flex gap-x-3.75 py-5 sm:py-7.5">
+            <div class="w-3.75 sm:w-6.25 mt-0 sm:mt-1.75">
+              <img
+                src="assets//icons/chechbox-checked.svg"
+                class="min-w-3.75 size-3.75 sm:min-w-6.5 sm:size-6.25"
+              />
+            </div>
+            <div>
+              <p
+                class="text-sm leading-3.5 sm:text-[1.625rem] sm:leading-9.75 font-medium"
+              >
+                成功パートナーの事例から得た、再現性があり成功する建材ビジネスのヒント
+              </p>
+              <p class="mt-2.5 sm:mt-5 text-kd-12 text-kd-sm-20">
+                初年度から大きく業績を伸ばした加盟店の事例をもとに、実在の事例から再現性のあるビジネス展開を学べます。
+              </p>
+            </div>
+          </div>
+          <div class="flex gap-x-3.75 py-5 sm:py-7.5">
+            <div class="w-3.75 sm:w-6.25 mt-0 sm:mt-1.75">
+              <img
+                src="assets//icons/chechbox-checked.svg"
+                class="min-w-3.75 size-3.75 sm:min-w-6.5 sm:size-6.25"
+              />
+            </div>
+            <div>
+              <p
+                class="text-sm leading-3.5 sm:text-[1.625rem] sm:leading-9.75 font-medium"
+              >
+                プロが選ぶ建材、エコ ＋ ラミネートの魅力と実績
+              </p>
+            </div>
+          </div>
+          <div class="flex gap-x-3.75 pt-5 sm:pt-7.5">
+            <div class="w-3.75 sm:w-6.25 mt-0 sm:mt-1.75">
+              <img
+                src="assets//icons/chechbox-checked.svg"
+                class="min-w-3.75 size-3.75 sm:min-w-6.5 sm:size-6.25"
+              />
+            </div>
+            <div>
+              <p
+                class="text-sm leading-3.5 sm:text-[1.625rem] sm:leading-9.75 font-medium"
+              >
+                安心して始められるサポート体制
+              </p>
+              <p class="mt-2.5 sm:mt-5 text-kd-12 text-kd-sm-20">
+                未経験でも取り組める理由とは？営業支援・顧客紹介・販促ツールなど、実際のサポート内容を具体的に紹介。
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 成功事例 -->
+    <section>
+      <div class="m-[1.875rem] mb-[3.75rem] sm:mx-[15%] sm:my-[6.25rem]">
+        <div class="flex items-end sm:mb-[3.125rem]">
+          <h1 class="text-kd-20 text-kd-sm-40 font-m-plus font-bold">
+            成功パートナーの事例
+          </h1>
+          <img
+            src="assets/icons/rect.svg"
+            alt=""
+            class="object-cover w-[1.25rem] h-[1.25rem] ml-[0.3125rem]"
+          />
+        </div>
+        <div>
+          <!--carousel-->
+          <div
+            class=""
+            x-data="{
           items: [
             {
               image: 'assets/success_1.png',
@@ -338,60 +501,100 @@
               });
             });
           }
-        }" x-init="initSwiper()">
-          <div class="swiper success-carousel swiper-container">
-            <div class="swiper-wrapper">
-              <template x-for="(item, index) in items" :key="`success_${index}`">
-                <div class="swiper-slide">
-                  <div>
-                    <div class="grid grid-cols-1 my-[1.25rem]">
-                      <div class="place-items-center block sm:flex sm:mb-[1.875rem]">
-                        <img :src="item.image" class="w-[6.25rem] h-[6.25rem] mb-[0.625rem] sm:mb-0 sm:w-[12.5rem] sm:h-[12.5rem] mx-auto sm:mx-0">
-                        <div class="sm:ml-[2.0625rem]">
-                          <p x-text="item.title" class="font-m-plus text-center sm:text-left font-bold text-kd-16 text-kd-sm-30 mb-[0.625rem] sm:mb-0"></p>
-                          <div class="flex items-center justify-center sm:justify-start sm:mt-[1.25rem]">
-                            <img src="assets/icons/location.svg" alt="" class="object-cover w-[0.75rem] h-[1rem] mr-[0.625rem] sm:w-[1.5rem] sm:h-[2rem]" />
-                            <p x-text="item.location" class="font-m-plus font-bold text-kd-10 text-kd-sm-20 text-orange"> </p>
+        }"
+            x-init="initSwiper()"
+          >
+            <div class="swiper success-carousel swiper-container">
+              <div class="swiper-wrapper">
+                <template
+                  x-for="(item, index) in items"
+                  :key="`success_${index}`"
+                >
+                  <div class="swiper-slide">
+                    <div>
+                      <div class="grid grid-cols-1 my-[1.25rem]">
+                        <div
+                          class="place-items-center block sm:flex sm:mb-[1.875rem]"
+                        >
+                          <img
+                            :src="item.image"
+                            class="w-[6.25rem] h-[6.25rem] mb-[0.625rem] sm:mb-0 sm:w-[12.5rem] sm:h-[12.5rem] mx-auto sm:mx-0"
+                          />
+                          <div class="sm:ml-[2.0625rem]">
+                            <p
+                              x-text="item.title"
+                              class="font-m-plus text-center sm:text-left font-bold text-kd-16 text-kd-sm-30 mb-[0.625rem] sm:mb-0"
+                            ></p>
+                            <div
+                              class="flex items-center justify-center sm:justify-start sm:mt-[1.25rem]"
+                            >
+                              <img
+                                src="assets/icons/location.svg"
+                                alt=""
+                                class="object-cover w-[0.75rem] h-[1rem] mr-[0.625rem] sm:w-[1.5rem] sm:h-[2rem]"
+                              />
+                              <p
+                                x-text="item.location"
+                                class="font-m-plus font-bold text-kd-10 text-kd-sm-20 text-orange"
+                              ></p>
+                            </div>
                           </div>
                         </div>
                       </div>
-                      
+                      <p
+                        class="flex justify-center items-center mb-[4.375rem] text-kd-10 text-kd-sm-20 whitespace-pre-line font-m-plus"
+                        x-text="item.des"
+                      ></p>
                     </div>
-                    <p class="flex justify-center items-center mb-[4.375rem] text-kd-10 text-kd-sm-20 whitespace-pre-line font-m-plus" x-text="item.des"> </p>
                   </div>
-                </div>
-              </template>
+                </template>
+              </div>
+              <div class="swiper-pagination"></div>
             </div>
-            <div class="swiper-pagination"></div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
-  
-  <!-- Registration -->
-  <section class="flex justify-center items-center gap-x-3.75 w-full py-5 sm:pt-6.25 sm:pb-7.5 bg-yellow">
-    <p class="outline outline-stone w-4.5 sm:w-6.75 p-0.75 sm:p-1.25 text-center text-stone text-wrap text-xxs leading-2.5 sm:leading-4 sm:text-base">無料</p>
-    <a href="#form" class="flex items-center gap-x-3.75">
-      <p class="text-kd-sm-20 text-kd-sm-30 text-stone font-medium" x-text="$store.sheet.anchorToForm"></p>
-      <div class="size-6.25 sm:size-8.75">
-        <img src="assets/icons/arrow-down-with-bg.svg" alt="Logo" class="size-full object-cover" />
+    </section>
+
+    <!-- Registration -->
+    <section
+      class="flex justify-center items-center gap-x-3.75 w-full py-5 sm:pt-6.25 sm:pb-7.5 bg-yellow"
+    >
+      <p
+        class="outline outline-stone w-4.5 sm:w-6.75 p-0.75 sm:p-1.25 text-center text-stone text-wrap text-xxs leading-2.5 sm:leading-4 sm:text-base"
+      >
+        無料
+      </p>
+      <a href="#form" class="flex items-center gap-x-3.75">
+        <p
+          class="text-kd-sm-20 text-kd-sm-30 text-stone font-medium"
+          x-text="$store.sheet.anchorToForm"
+        ></p>
+        <div class="size-6.25 sm:size-8.75">
+          <img
+            src="assets/icons/arrow-down-with-bg.svg"
+            alt="Logo"
+            class="size-full object-cover"
+          />
+        </div>
+      </a>
+    </section>
+
+    <!-- Form -->
+    <section class="max-w-200 mx-auto px-7.5 pt-7.5 sm:pt-25" id="form">
+      <div class="flex items-end gap-x-1.25">
+        <h2 class="text-kd-20 text-kd-sm-40 font-bold">申し込みフォーム</h2>
+        <div class="size-5">
+          <img src="assets/icons/rect.svg" class="size-full" />
+        </div>
       </div>
-    </a>
-  </section>
+      <div class="mt-5 text-kd-10 text-kd-sm-20 font-medium">
+        <span>申込情報をご入力ください。</span>
+        <span class="text-orange">※は入力必須です。</span>
+      </div>
 
-  <!-- Form -->
-  <section class="max-w-200 mx-auto px-7.5 pt-7.5 sm:pt-25" id="form">
-    <div class="flex items-end gap-x-1.25">
-      <h2 class="text-kd-20 text-kd-sm-40 font-bold">申し込みフォーム</h2>
-      <div class="size-5"><img src="assets/icons/rect.svg" class="size-full" /></div>
-    </div>
-    <div class="mt-5 text-kd-10 text-kd-sm-20 font-medium">
-      <span>申込情報をご入力ください。</span>
-      <span class="text-orange">※は入力必須です。</span>
-    </div>
-
-    <div x-data="{
+      <div
+        x-data="{
       form: {
         name: '',
         nameKana: '',
@@ -404,12 +607,24 @@
       message: '',
       selectOptions: [],
       handleSubmit() {
-        try{
-          // TODO post form
-          this.succeed();
-        } catch (error) {
-          console.error(error);
-        }
+         const url = 'https://script.google.com/macros/s/AKfycbxX9ESuDFRPqjPdtpR3o0AesTjY7Va1WQFxY8eqJMDAkK755B4HSAx-eaXBfs8JoeNuHA/exec';
+
+    fetch(url, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(this.form)
+    })
+    .then(response => response.json())
+    .then(data => {
+      if (data.result === 'success') {
+        this.succeed();
+      } else {
+        console.error('Error Submit:', data);
+      }
+    })
+    .catch(error => {
+      console.error('Error:', error);
+    });
       },
       succeed() {
         this.message = '送信が完了しました'
@@ -423,147 +638,222 @@
         }
         this.$refs.flash.classList.remove('hidden');
       }
-    }">
-      <form action="" method="get" class="my-7.5 sm:mb-25" @submit.prevent="handleSubmit">
-        <div class="flex flex-col gap-y-2.5">
-          <div>
-            <label class="flex gap-x-2.5 sm:gap-x-3.75 text-kd-10 text-kd-sm-20 font-medium">
-              氏名
-              <span class="text-orange">※必須</span>
-            </label>
-            <input type="text"
-                  name="name"
-                  class="w-full mt-2.5 px-2.5 sm:px-5 py-[7.5px] sm:py-2.5 border-2 border-gray focus:outline-0 font-medium text-gray placeholder:text-gray text-kd-10 text-kd-sm-20"
-                  placeholder="例）山田 太郎"
-                  required
-                  x-model="form.name" />
-          </div>
-
-          <div>
-            <label class="flex gap-x-2.5 sm:gap-x-3.75 text-kd-10 text-kd-sm-20 font-medium">
-              氏名（フリガナ） 
-              <span class="text-orange">※必須</span>
-            </label>
-            <input type="text"
-                    name="nameKana"
-                    class="w-full mt-2.5 px-2.5 sm:px-5 py-[7.5px] sm:py-2.5 border-2 border-gray focus:outline-0 font-medium text-gray placeholder:text-gray text-kd-10 text-kd-sm-20"
-                    placeholder="例）ヤマダ タロウ"
-                    required
-                    x-model="form.nameKana"/>
-          </div>
-
-          <div>
-            <label class="flex gap-x-2.5 sm:gap-x-3.75 text-kd-10 text-kd-sm-20 font-medium">
-              会社名
-              <span class="text-orange">※必須</span>
-            </label>
-            <input type="text"
-                  name="company"
-                  class="w-full mt-2.5 px-2.5 sm:px-5 py-[7.5px] sm:py-2.5 border-2 border-gray focus:outline-0 font-medium text-gray placeholder:text-gray text-kd-10 text-kd-sm-20"
-                  required
-                  x-model="form.company" />
-          </div>
-
-          <div>
-            <label class="flex gap-x-2.5 sm:gap-x-3.75 text-kd-10 text-kd-sm-20 font-medium">
-              つながりやすい番号 
-              <span class="text-orange">※必須</span>
-            </label>
-            <input type="text"
-                  name="phone"
-                  class="w-full mt-2.5 px-2.5 sm:px-5 py-[7.5px] sm:py-2.5 border-2 border-gray focus:outline-0 font-medium text-gray placeholder:text-gray text-kd-10 text-kd-sm-20"
-                  placeholder="例）0300001111"
-                  required
-                  x-model="form.phone" />
-          </div>
-
-          <div>
-            <label class="flex gap-x-2.5 sm:gap-x-3.75 text-kd-10 text-kd-sm-20 font-medium">
-              メールアドレス
-              <span class="text-orange">※必須</span>
-            </label>
-            <input type="text"
-                  name="email"
-                  class="w-full mt-2.5 px-2.5 sm:px-5 py-[7.5px] sm:py-2.5 border-2 border-gray focus:outline-0 font-medium text-gray placeholder:text-gray text-kd-10 text-kd-sm-20"
-                  placeholder="例）example@domain.com"
-                  required
-                  x-model="form.email" />
-          </div>
-
-          <div>
-            <label class="flex gap-x-2.5 sm:gap-x-3.75 text-kd-10 text-kd-sm-20 font-medium">
-              説明会参加日時
-              <span class="text-orange">※必須</span>
-            </label>
+    }"
+      >
+        <form
+          action=""
+          method="get"
+          class="my-7.5 sm:mb-25"
+          @submit.prevent="handleSubmit"
+        >
+          <div class="flex flex-col gap-y-2.5">
             <div>
-              <select required name="dateTime" x-model="form.dateTime" class="form_select w-full mt-2.5 px-2.5 sm:px-5 py-[7.5px] sm:py-2.5 border-2 border-gray focus:outline-0 font-medium text-gray placeholder:text-gray text-kd-10 text-kd-sm-20">
-                <template x-for="option in $store.sheet.dateTimeOptions" :key="option">
-                  <option :value="option" x-text="option"></option>
-                </template>
-              </select>
+              <label
+                class="flex gap-x-2.5 sm:gap-x-3.75 text-kd-10 text-kd-sm-20 font-medium"
+              >
+                氏名
+                <span class="text-orange">※必須</span>
+              </label>
+              <input
+                type="text"
+                name="name"
+                class="w-full mt-2.5 px-2.5 sm:px-5 py-[7.5px] sm:py-2.5 border-2 border-gray focus:outline-0 font-medium text-gray placeholder:text-gray text-kd-10 text-kd-sm-20"
+                placeholder="例）山田 太郎"
+                required
+                x-model="form.name"
+              />
+            </div>
+
+            <div>
+              <label
+                class="flex gap-x-2.5 sm:gap-x-3.75 text-kd-10 text-kd-sm-20 font-medium"
+              >
+                氏名（フリガナ）
+                <span class="text-orange">※必須</span>
+              </label>
+              <input
+                type="text"
+                name="nameKana"
+                class="w-full mt-2.5 px-2.5 sm:px-5 py-[7.5px] sm:py-2.5 border-2 border-gray focus:outline-0 font-medium text-gray placeholder:text-gray text-kd-10 text-kd-sm-20"
+                placeholder="例）ヤマダ タロウ"
+                required
+                x-model="form.nameKana"
+              />
+            </div>
+
+            <div>
+              <label
+                class="flex gap-x-2.5 sm:gap-x-3.75 text-kd-10 text-kd-sm-20 font-medium"
+              >
+                会社名
+                <span class="text-orange">※必須</span>
+              </label>
+              <input
+                type="text"
+                name="company"
+                class="w-full mt-2.5 px-2.5 sm:px-5 py-[7.5px] sm:py-2.5 border-2 border-gray focus:outline-0 font-medium text-gray placeholder:text-gray text-kd-10 text-kd-sm-20"
+                required
+                x-model="form.company"
+              />
+            </div>
+
+            <div>
+              <label
+                class="flex gap-x-2.5 sm:gap-x-3.75 text-kd-10 text-kd-sm-20 font-medium"
+              >
+                つながりやすい番号
+                <span class="text-orange">※必須</span>
+              </label>
+              <input
+                type="text"
+                name="phone"
+                class="w-full mt-2.5 px-2.5 sm:px-5 py-[7.5px] sm:py-2.5 border-2 border-gray focus:outline-0 font-medium text-gray placeholder:text-gray text-kd-10 text-kd-sm-20"
+                placeholder="例）0300001111"
+                required
+                x-model="form.phone"
+              />
+            </div>
+
+            <div>
+              <label
+                class="flex gap-x-2.5 sm:gap-x-3.75 text-kd-10 text-kd-sm-20 font-medium"
+              >
+                メールアドレス
+                <span class="text-orange">※必須</span>
+              </label>
+              <input
+                type="text"
+                name="email"
+                class="w-full mt-2.5 px-2.5 sm:px-5 py-[7.5px] sm:py-2.5 border-2 border-gray focus:outline-0 font-medium text-gray placeholder:text-gray text-kd-10 text-kd-sm-20"
+                placeholder="例）example@domain.com"
+                required
+                x-model="form.email"
+              />
+            </div>
+
+            <div>
+              <label
+                class="flex gap-x-2.5 sm:gap-x-3.75 text-kd-10 text-kd-sm-20 font-medium"
+              >
+                説明会参加日時
+                <span class="text-orange">※必須</span>
+              </label>
+              <div>
+                <select
+                  required
+                  name="dateTime"
+                  x-model="form.dateTime"
+                  class="form_select w-full mt-2.5 px-2.5 sm:px-5 py-[7.5px] sm:py-2.5 border-2 border-gray focus:outline-0 font-medium text-gray placeholder:text-gray text-kd-10 text-kd-sm-20"
+                >
+                  <template
+                    x-for="option in $store.sheet.dateTimeOptions"
+                    :key="option"
+                  >
+                    <option :value="option" x-text="option"></option>
+                  </template>
+                </select>
+              </div>
             </div>
           </div>
-        </div>
 
-        <div class="max-h-40 sm:max-h-75 overflow-y-scroll border-2 border-gray mt-7.5 px-4.5 py-7.5">
-          <p class="text-kd-14 text-kd-sm-20 font-medium">個人情報の取り扱いについて</p>
-          <p class="mt-5 text-kd-10 text-kd-sm-16">
-            ご登録いただいた個人情報は、株式会社プロパティデータバンクおよび主催企業で適切に管理し、各社が提供するサービスおよびこれに関連するイベントなどのご案内目的で利用いたします。<br/>
-            ご登録いただいた個人情報は、株式会社プロパティデータバンクのプライバシーポリシー（こちらのページでご確認ください）に基づいて管理されます<br/><br/><br/><br/>
-            ご登録いただいた個人情報は、株式会社プロパティデータバンクおよび主催企業で適切に管理し、各社が提供するサービスおよびこれに関連するイベントなどのご案内目的で利用いたします。<br/>
-            ご登録いただいた個人情報は、株式会社プロパティデータバンクのプライバシーポリシー（こちらのページでご確認ください）に基づいて管理されます<br/><br/><br/><br/>
-            ご登録いただいた個人情報は、株式会社プロパティデータバンクおよび主催企業で適切に管理し、各社が提供するサービスおよびこれに関連するイベントなどのご案内目的で利用いたします。</p>
-        </div>
+          <div
+            class="max-h-40 sm:max-h-75 overflow-y-scroll border-2 border-gray mt-7.5 px-4.5 py-7.5"
+          >
+            <p class="text-kd-14 text-kd-sm-20 font-medium">
+              個人情報の取り扱いについて
+            </p>
+            <p class="mt-5 text-kd-10 text-kd-sm-16">
+              ご登録いただいた個人情報は、株式会社プロパティデータバンクおよび主催企業で適切に管理し、各社が提供するサービスおよびこれに関連するイベントなどのご案内目的で利用いたします。<br />
+              ご登録いただいた個人情報は、株式会社プロパティデータバンクのプライバシーポリシー（こちらのページでご確認ください）に基づいて管理されます<br /><br /><br /><br />
+              ご登録いただいた個人情報は、株式会社プロパティデータバンクおよび主催企業で適切に管理し、各社が提供するサービスおよびこれに関連するイベントなどのご案内目的で利用いたします。<br />
+              ご登録いただいた個人情報は、株式会社プロパティデータバンクのプライバシーポリシー（こちらのページでご確認ください）に基づいて管理されます<br /><br /><br /><br />
+              ご登録いただいた個人情報は、株式会社プロパティデータバンクおよび主催企業で適切に管理し、各社が提供するサービスおよびこれに関連するイベントなどのご案内目的で利用いたします。
+            </p>
+          </div>
 
-        <div class="flex justify-center items-center gap-x-[7.5px] mt-7.5" :class="{'cursor-pointer': !checked}" @click="checked = true">
-          <div class="hidden block size-3.75 min-w-3.75  sm:min-w-6.25 sm:size-6.25 outline-2 outline-gray" :class="{ 'hidden': checked }"></div>
-          <div class="size-3.75 sm:size-6.25" :class="{ 'hidden': !checked }"><img src="assets/icons/chechbox-checked.svg" class="min-w-3.75 sm:min-w-6.25 size-3.75 sm:size-6.25" /></div>
-          <p class="text-kd-10 text-kd-sm-20 font-medium">上記の個人情報の取扱いに関する事項について、同意する</p>
-        </div>
+          <div
+            class="flex justify-center items-center gap-x-[7.5px] mt-7.5"
+            :class="{'cursor-pointer': !checked}"
+            @click="checked = true"
+          >
+            <div
+              class="hidden block size-3.75 min-w-3.75 sm:min-w-6.25 sm:size-6.25 outline-2 outline-gray"
+              :class="{ 'hidden': checked }"
+            ></div>
+            <div class="size-3.75 sm:size-6.25" :class="{ 'hidden': !checked }">
+              <img
+                src="assets/icons/chechbox-checked.svg"
+                class="min-w-3.75 sm:min-w-6.25 size-3.75 sm:size-6.25"
+              />
+            </div>
+            <p class="text-kd-10 text-kd-sm-20 font-medium">
+              上記の個人情報の取扱いに関する事項について、同意する
+            </p>
+          </div>
 
-        <div class="flex justify-center mt-7.5 sm:mt-12.5">
-          <input type="submit" :disabled="!checked" value="内容を確認して送信" :class="{'cursor-pointer': checked, 'cursor-not-allowed': !checked}" class="py-2.5 sm:py-5 px-5 sm:px-7.5 text-kd-14 text-kd-sm-26 bg-orange text-white" />
-        </div>
+          <div class="flex justify-center mt-7.5 sm:mt-12.5">
+            <input
+              type="submit"
+              :disabled="!checked"
+              value="内容を確認して送信"
+              :class="{'cursor-pointer': checked, 'cursor-not-allowed': !checked}"
+              class="py-2.5 sm:py-5 px-5 sm:px-7.5 text-kd-14 text-kd-sm-26 bg-orange text-white"
+            />
+          </div>
 
-        <p class="w-full text-orange text-sm text-center mt-5 hidden" x-ref="flash" x-text="message"></p>
-      </form>
-    </div>
-  </section>
-  
-  <footer class="flex items-center w-full h-22.5 sm:h-57.5 px-7.5 sm:px-0 bg-stone">
-    <p class="w-full text-center text-white font-medium text-kd-10 text-kd-sm-20">Copyright © 2025 Keding Enterprises Co., Ltd. All rights reserved.</p>
-  </footer>
-</body>
-<script>
-  document.addEventListener('alpine:init', () => {
-    Alpine.store('sheet', {
-      rows: [],
-      anchorToForm: '参加登録フォームへ',
-      whatYouGain: 'セミナーで得られること',
-      dateTimeOptions: [],
-      async fetch() {
-        try {
-          const sheet_id = '1nVO6-QRWNJsMC90Jwxe8yg3AglOMlAH_38xnc9LonrY'
-          const url = `https://docs.google.com/spreadsheets/d/${sheet_id}/gviz/tq?tqx=out:json`;
-          const res = await fetch(url);
-          const text = await res.text();
-          const json = JSON.parse(text.replace(/^[^\(]*\(/, '').replace(/\);$/, ''));
-          this.rows = json.table.rows.map(r => r.c.map(c => c ? c.v : ''));
-          this.anchorToForm = this.rows[1][3]
-          this.whatYouGain = this.rows[1][4] 
-          this.setDateTimeOptions();
-        } catch (error) {
-          console.error('Error fetching data:', error);
-        }
-      },
-      setDateTimeOptions() {
-        const length = this.rows.length - 1
-        for (let index = 1; index <= length; index++) {
-          const option = this.rows[index][0];
-          this.dateTimeOptions.push(option);
-        }
-      }
+          <p
+            class="w-full text-orange text-sm text-center mt-5 hidden"
+            x-ref="flash"
+            x-text="message"
+          ></p>
+        </form>
+      </div>
+    </section>
+
+    <footer
+      class="flex items-center w-full h-22.5 sm:h-57.5 px-7.5 sm:px-0 bg-stone"
+    >
+      <p
+        class="w-full text-center text-white font-medium text-kd-10 text-kd-sm-20"
+      >
+        Copyright © 2025 Keding Enterprises Co., Ltd. All rights reserved.
+      </p>
+    </footer>
+  </body>
+  <script>
+    document.addEventListener("alpine:init", () => {
+      Alpine.store("sheet", {
+        rows: [],
+        anchorToForm: "参加登録フォームへ",
+        whatYouGain: "セミナーで得られること",
+        dateTimeOptions: [],
+        async fetch() {
+          try {
+            const sheet_id = "1nVO6-QRWNJsMC90Jwxe8yg3AglOMlAH_38xnc9LonrY";
+            const url = `https://docs.google.com/spreadsheets/d/${sheet_id}/gviz/tq?tqx=out:json`;
+            const res = await fetch(url);
+            const text = await res.text();
+            const json = JSON.parse(
+              text.replace(/^[^\(]*\(/, "").replace(/\);$/, "")
+            );
+            this.rows = json.table.rows.map((r) =>
+              r.c.map((c) => (c ? c.v : ""))
+            );
+            this.anchorToForm = this.rows[1][3];
+            this.whatYouGain = this.rows[1][4];
+            this.setDateTimeOptions();
+          } catch (error) {
+            console.error("Error fetching data:", error);
+          }
+        },
+        setDateTimeOptions() {
+          const length = this.rows.length - 1;
+          for (let index = 1; index <= length; index++) {
+            const option = this.rows[index][0];
+            this.dateTimeOptions.push(option);
+          }
+        },
+      });
     });
-  });
-</script>
+  </script>
 </html>
