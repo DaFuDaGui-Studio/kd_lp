@@ -607,38 +607,42 @@
       message: '',
       selectOptions: [],
       handleSubmit() {
-         const url = 'https://script.google.com/macros/s/AKfycbxX9ESuDFRPqjPdtpR3o0AesTjY7Va1WQFxY8eqJMDAkK755B4HSAx-eaXBfs8JoeNuHA/exec';
-
-    fetch(url, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(this.form)
-    })
-    .then(response => response.json())
-    .then(data => {
-      if (data.result === 'success') {
-        this.succeed();
-      } else {
-        console.error('Error Submit:', data);
-      }
-    })
-    .catch(error => {
-      console.error('Error:', error);
-    });
-      },
-      succeed() {
-        this.message = '送信が完了しました'
-        this.form = {
-          name: '',
-          nameKana: '',
-          company: '',
-          phone: '',
-          email: '',
-          dateTime: '',
+        const url = 'https://script.google.com/macros/s/AKfycbxX9ESuDFRPqjPdtpR3o0AesTjY7Va1WQFxY8eqJMDAkK755B4HSAx-eaXBfs8JoeNuHA/exec';
+        
+        const formData = new URLSearchParams();
+        for (const key in this.form) {
+          formData.append(key, this.form[key]);
         }
-        this.$refs.flash.classList.remove('hidden');
-      }
-    }"
+        
+        fetch(url, {
+          method: 'POST',
+          body: formData,
+        })
+        .then(response => response.json())
+        .then(data => {
+          if (data.result === 'success') {
+            this.succeed();
+          } else {
+            console.error('Error Submit:', data);
+            }
+          })
+          .catch(error => {
+            console.error('Error:', error);
+            });
+          },
+          succeed() {
+            this.message = '送信が完了しました'
+            this.form = {
+              name: '',
+              nameKana: '',
+              company: '',
+              phone: '',
+              email: '',
+              dateTime: '',
+            }
+            this.$refs.flash.classList.remove('hidden');
+          }
+        }"
       >
         <form
           action=""
