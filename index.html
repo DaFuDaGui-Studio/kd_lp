@@ -583,34 +583,15 @@
     <!-- Agenda -->
     <section class=" mx-auto" id="agenda">
       <div class="flex flex-col sm:flex-row w-full sm:h-[850px] relative">
-         <div class="hidden sm:block absolute top-[100px] right-[70px] rotate-270 text-[20px] text-orange">
-          KEDING
+        <div class="hidden sm:block w-[27%] bg-cover bg-center" style="background-image: url('assets/agenda_left_desktop.png');">
         </div>
-        <div class="hidden sm:block w-[27%] bg-cover bg-center" style="background-image: url('assets/agenda_desktop.png');">
+        <div class="hidden sm:block w-[73%] bg-cover bg-center" style="background-image: url('assets/agenda_right_desktop.png');">
         </div>
-        <div class="block sm:hidden w-full aspect-[320/150] bg-cover bg-center" style="background-image: url('assets/agenda_mobile.png');">
+        <div class="block sm:hidden w-full aspect-[320/150] bg-cover bg-center" style="background-image: url('assets/agenda_up_mobile.png');">
         </div>
-        <div
-          x-data="{ items: [
-            { title: '開催挨拶' },
-            { title: '建材市場の成長性とビジネスチャンス' },
-            { title: '製品紹介と差別化ポイント' },
-            { title: '成功事例の紹介とパートナー支援体制', subtitle: '実際の加盟者の声／サポート体制' },
-            { title: 'ビジネスモデルと加盟プランの全体像', subtitle: '店舗・在庫不要で始められる仕組み、収益モデル、費用構成' },
-            { title: '質疑応答／申込のご案内', subtitle: '申込方法の説明、個別相談のご案内、アンケートのお願い' }
-          ]}"
-          class="w-full sm:w-[73%] bg-white p-[30px] sm:p-[100px] flex flex-col justify-center gap-[30px] sm:gap-[50px]"
-        >
-          <template x-for="(item, index) in items" :key="index">
-            <div class="flex items-start gap-4">
-              <div class="text-orange font-extrabold leading-5 sm:leading-9.75 text-kd-10 text-kd-sm-20 sm:mr-[30px]" x-text="(index + 1).toString().padStart(2, '0')"></div>
-              <div class="leading-3.5 sm:leading-9.75">
-                <div class="text-kd-14 text-kd-sm-26 font-bold" x-text="item.title"></div>
-                <div class="text-kd-12 text-kd-sm-26 font-normal mt-[10px] sm:mt-[15px] leading-4.5 sm:leading-10" x-show="item.subtitle" x-text="item.subtitle"></div>
-              </div>
-            </div>
-          </template>
+        <div class="block sm:hidden w-full aspect-[320/450] bg-cover bg-center" style="background-image: url('assets/agenda_down_mobile.png');">
         </div>
+
       </div>
     </section>
 
