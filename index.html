@@ -628,10 +628,52 @@
         <span class="text-orange">※は入力必須です。</span>
       </div>
 
-    <div x-data="formComponent()">
+      <div x-data="{
+    form: {
+      name: '',
+      nameKana: '',
+      company: '',
+      phone: '',
+      email: '',
+      dateTime: $store.sheet.dateTimeOptions.length > 0 ? $store.sheet.dateTimeOptions[0] : ''
+    },
+    checked: false,
+    message: '',
+    selectOptions: [],
+    handleSubmit() {
+      const url = 'https://script.google.com/macros/s/AKfycbxX9ESuDFRPqjPdtpR3o0AesTjY7Va1WQFxY8eqJMDAkK755B4HSAx-eaXBfs8JoeNuHA/exec';
+      fetch(url,{
+         method: 'POST',
+         headers: { 'Content-Type': 'text/plain;charset=UTF-8' },
+         body: JSON.stringify(this.form)
+      })
+        .then(response => response.json())
+        .then(data => {
+          if (data.result === 'success') {
+            this.succeed();
+          } else {
+            console.error('Error Submit:', data);
+          }
+        })
+        .catch(error => {
+          console.error('Error:', error);
+        });
+    },
+    succeed() {
+      this.message = '送信が完了しました';
+      this.form = {
+        name: '',
+        nameKana: '',
+        company: '',
+        phone: '',
+        email: '',
+        dateTime: '',
+      };
+      this.$refs.flash.classList.remove('hidden');
+    }
+  }">
         <form
-          action=""
-          method="get"
+          method="post"
           class="my-7.5 sm:mb-25"
           @submit.prevent="handleSubmit"
         >
@@ -796,7 +838,6 @@
             x-text="message"
           ></p>
         </form>
-      </div>
     </section>
 
     <footer
