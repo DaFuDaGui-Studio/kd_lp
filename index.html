@@ -699,9 +699,15 @@
               this.errors = [];
               fields.forEach(field => {
                 if (!this.form[field]) {
-                  this.errors.push(field);
+                  this.errors.push(`${field}-blank`);
                 }
               });
+              
+              if(this.form.email == ''){ return }
+              const mailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+              if(!mailRegex.test(this.form.email)){
+                this.errors.push('email-invalid')
+              }
             },
             succeed() {
               this.postStatus = 'success';
@@ -736,7 +742,7 @@
                 placeholder="例）山田 太郎"
                 x-model="form.name"
               />
-              <span x-show="errors.includes('name')" class="flex items-center gap-x-2 mt-2.5 text-[#FF0000] text-kd-10 text-kd-sm-20">
+              <span x-show="errors.includes('name-blank')" class="flex items-center gap-x-2 mt-2.5 text-[#FF0000] text-kd-10 text-kd-sm-20">
                 <img src="./assets/icons/warning.svg" class="size-4" /> 氏名(姓)を入力してください。
               </span>
             </div>
@@ -756,7 +762,7 @@
                 placeholder="例）ヤマダ タロウ"
                 x-model="form.nameKana"
               />
-              <span x-show="errors.includes('nameKana')" class="flex items-center gap-x-2 mt-2.5 text-[#FF0000] text-kd-10 text-kd-sm-20">
+              <span x-show="errors.includes('nameKana-blank')" class="flex items-center gap-x-2 mt-2.5 text-[#FF0000] text-kd-10 text-kd-sm-20">
                 <img src="./assets/icons/warning.svg" class="size-4" /> 氏名（フリガナ）を入力してください。
               </span>
             </div>
@@ -774,7 +780,7 @@
                 class="w-full mt-2.5 px-2.5 sm:px-5 py-[7.5px] sm:py-2.5 border-2 border-gray focus:outline-0 font-medium text-gray placeholder:text-gray text-kd-10 text-kd-sm-20"
                 x-model="form.company"
               />
-              <span x-show="errors.includes('company')" class="flex items-center gap-x-2 mt-2.5 text-[#FF0000] text-kd-10 text-kd-sm-20">
+              <span x-show="errors.includes('company-blank')" class="flex items-center gap-x-2 mt-2.5 text-[#FF0000] text-kd-10 text-kd-sm-20">
                 <img src="./assets/icons/warning.svg" class="size-4" /> 会社名を入力してください。
               </span>
             </div>
@@ -793,7 +799,7 @@
                 placeholder="例）0300001111"
                 x-model="form.phone"
               />
-              <span x-show="errors.includes('phone')" class="flex items-center gap-x-2 mt-2.5 text-[#FF0000] text-kd-10 text-kd-sm-20">
+              <span x-show="errors.includes('phone-blank')" class="flex items-center gap-x-2 mt-2.5 text-[#FF0000] text-kd-10 text-kd-sm-20">
                 <img src="./assets/icons/warning.svg" class="size-4" /> つながりやすい番号を入力してください。
               </span>
             </div>
@@ -812,8 +818,11 @@
                 placeholder="例）example@domain.com"
                 x-model="form.email"
               />
-              <span x-show="errors.includes('email')" class="flex items-center gap-x-2 mt-2.5 text-[#FF0000] text-kd-10 text-kd-sm-20">
+              <span x-show="errors.includes('email-blank')" class="flex items-center gap-x-2 mt-2.5 text-[#FF0000] text-kd-10 text-kd-sm-20">
                 <img src="./assets/icons/warning.svg" class="size-4" /> メールアドレスを入力してください。
+              </span>
+              <span x-show="errors.includes('email-invalid')" class="flex items-center gap-x-2 mt-2.5 text-[#FF0000] text-kd-10 text-kd-sm-20">
+                <img src="./assets/icons/warning.svg" class="size-4" /> メールアドレスの形式が正しくありません。
               </span>
             </div>
 
