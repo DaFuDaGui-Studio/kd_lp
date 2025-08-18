@@ -698,7 +698,7 @@
               const fields = ['name', 'nameKana', 'company', 'phone', 'email', 'dateTime'];
               this.errors = [];
               fields.forEach(field => {
-                if (!this.form[field]) {
+                if (!this.form[field] || this.form[field] === '') {
                   this.errors.push(`${field}-blank`);
                 }
               });
@@ -732,7 +732,7 @@
               <label
                 class="flex gap-x-2.5 sm:gap-x-3.75 text-kd-10 text-kd-sm-20 font-medium"
               >
-                氏名
+                <span x-text="$store.sheet.formTitle.name"></span>
                 <span class="text-orange">※必須</span>
               </label>
               <input
@@ -742,9 +742,9 @@
                 placeholder="例）山田 太郎"
                 x-model="form.name"
               />
-              <span x-show="errors.includes('name-blank')" class="flex items-center gap-x-2 mt-2.5 text-[#FF0000] text-kd-10 text-kd-sm-20">
-                <img src="./assets/icons/warning.svg" class="size-4" /> 氏名(姓)を入力してください。
-              </span>
+              <p x-show="errors.includes('name-blank')" class="flex items-center gap-x-2 mt-2.5 text-[#FF0000] text-kd-10 text-kd-sm-20">
+                <img src="./assets/icons/warning.svg" class="size-4" /> <span x-text="$store.sheet.formTitle.name"></span>を入力してください。
+              </p>
             </div>
 
 
@@ -752,7 +752,7 @@
               <label
                 class="flex gap-x-2.5 sm:gap-x-3.75 text-kd-10 text-kd-sm-20 font-medium"
               >
-                氏名（フリガナ）
+                <span x-text="$store.sheet.formTitle.nameKana"></span>
                 <span class="text-orange">※必須</span>
               </label>
               <input
@@ -762,16 +762,16 @@
                 placeholder="例）ヤマダ タロウ"
                 x-model="form.nameKana"
               />
-              <span x-show="errors.includes('nameKana-blank')" class="flex items-center gap-x-2 mt-2.5 text-[#FF0000] text-kd-10 text-kd-sm-20">
-                <img src="./assets/icons/warning.svg" class="size-4" /> 氏名（フリガナ）を入力してください。
-              </span>
+              <p x-show="errors.includes('nameKana-blank')" class="flex items-center gap-x-2 mt-2.5 text-[#FF0000] text-kd-10 text-kd-sm-20">
+                <img src="./assets/icons/warning.svg" class="size-4" /> <span x-text="$store.sheet.formTitle.nameKana"></span>を入力してください。
+              </p>
             </div>
 
             <div>
               <label
                 class="flex gap-x-2.5 sm:gap-x-3.75 text-kd-10 text-kd-sm-20 font-medium"
               >
-                会社名
+                <span x-text="$store.sheet.formTitle.company"></span>
                 <span class="text-orange">※必須</span>
               </label>
               <input
@@ -780,16 +780,16 @@
                 class="w-full mt-2.5 px-2.5 sm:px-5 py-[7.5px] sm:py-2.5 border-2 border-gray focus:outline-0 font-medium text-gray placeholder:text-gray text-kd-10 text-kd-sm-20"
                 x-model="form.company"
               />
-              <span x-show="errors.includes('company-blank')" class="flex items-center gap-x-2 mt-2.5 text-[#FF0000] text-kd-10 text-kd-sm-20">
-                <img src="./assets/icons/warning.svg" class="size-4" /> 会社名を入力してください。
-              </span>
+              <p x-show="errors.includes('company-blank')" class="flex items-center gap-x-2 mt-2.5 text-[#FF0000] text-kd-10 text-kd-sm-20">
+                <img src="./assets/icons/warning.svg" class="size-4" /> <span x-text="$store.sheet.formTitle.company"></span>を入力してください。
+              </p>
             </div>
 
             <div>
               <label
                 class="flex gap-x-2.5 sm:gap-x-3.75 text-kd-10 text-kd-sm-20 font-medium"
               >
-                つながりやすい番号
+                <span x-text="$store.sheet.formTitle.phone"></span>
                 <span class="text-orange">※必須</span>
               </label>
               <input
@@ -799,16 +799,16 @@
                 placeholder="例）0300001111"
                 x-model="form.phone"
               />
-              <span x-show="errors.includes('phone-blank')" class="flex items-center gap-x-2 mt-2.5 text-[#FF0000] text-kd-10 text-kd-sm-20">
-                <img src="./assets/icons/warning.svg" class="size-4" /> つながりやすい番号を入力してください。
-              </span>
+              <p x-show="errors.includes('phone-blank')" class="flex items-center gap-x-2 mt-2.5 text-[#FF0000] text-kd-10 text-kd-sm-20">
+                <img src="./assets/icons/warning.svg" class="size-4" /><span x-text="$store.sheet.formTitle.phone"></span>を入力してください。
+              </p>
             </div>
 
             <div>
               <label
                 class="flex gap-x-2.5 sm:gap-x-3.75 text-kd-10 text-kd-sm-20 font-medium"
               >
-                メールアドレス
+                <span x-text="$store.sheet.formTitle.email"></span>
                 <span class="text-orange">※必須</span>
               </label>
               <input
@@ -818,19 +818,19 @@
                 placeholder="例）example@domain.com"
                 x-model="form.email"
               />
-              <span x-show="errors.includes('email-blank')" class="flex items-center gap-x-2 mt-2.5 text-[#FF0000] text-kd-10 text-kd-sm-20">
-                <img src="./assets/icons/warning.svg" class="size-4" /> メールアドレスを入力してください。
-              </span>
-              <span x-show="errors.includes('email-invalid')" class="flex items-center gap-x-2 mt-2.5 text-[#FF0000] text-kd-10 text-kd-sm-20">
-                <img src="./assets/icons/warning.svg" class="size-4" /> メールアドレスの形式が正しくありません。
-              </span>
+              <p x-show="errors.includes('email-blank')" class="flex items-center gap-x-2 mt-2.5 text-[#FF0000] text-kd-10 text-kd-sm-20">
+                <img src="./assets/icons/warning.svg" class="size-4" /> <span x-text="$store.sheet.formTitle.email"></span>を入力してください。
+              </p>
+              <p x-show="errors.includes('email-invalid')" class="flex items-center gap-x-2 mt-2.5 text-[#FF0000] text-kd-10 text-kd-sm-20">
+                <img src="./assets/icons/warning.svg" class="size-4" /> <span x-text="$store.sheet.formTitle.email"></span>の形式が正しくありません。
+              </p>
             </div>
 
             <div>
               <label
                 class="flex gap-x-2.5 sm:gap-x-3.75 text-kd-10 text-kd-sm-20 font-medium"
               >
-                説明会参加日時
+                <span x-text="$store.sheet.formTitle.dateTime"></span>
                 <span class="text-orange">※必須</span>
               </label>
               <div>
@@ -838,6 +838,7 @@
                   name="dateTime"
                   x-model="form.dateTime"
                   class="form_select w-full mt-2.5 px-2.5 sm:px-5 py-[7.5px] sm:py-2.5 border-2 border-gray focus:outline-0 font-medium text-gray placeholder:text-gray text-kd-10 text-kd-sm-20"
+                  include
                 >
                   <template
                     x-for="option in $store.sheet.dateTimeOptions"
@@ -846,9 +847,9 @@
                     <option :value="option" x-text="option"></option>
                   </template>
                 </select>
-                <span x-show="errors.includes('dateTime')" class="flex items-center gap-x-2 mt-2.5 text-[#FF0000] text-kd-10 text-kd-sm-20">
-                  <img src="./assets/icons/warning.svg" class="size-4" /> 説明会参加日時を入力してください。
-                </span>
+                <p x-show="errors.includes('dateTime-blank')" class="flex items-center gap-x-2 mt-2.5 text-[#FF0000] text-kd-10 text-kd-sm-20">
+                  <img src="./assets/icons/warning.svg" class="size-4"/> <span x-text="$store.sheet.formTitle.dateTime"></span>を入力してください。
+                </p>
               </div>
             </div>
           </div>
@@ -946,9 +947,17 @@
         rows: [],
         anchorToForm: "参加登録フォームへ",
         whatYouGain: "セミナーで得られること",
-        dateTimeOptions: [],
+        dateTimeOptions: [''],
         informationRegulations: "個人情報の取り扱いについて",
         successApplyContent: "お申し込み完了",
+        formTitle: {
+          name: '',
+          nameKana: '',
+          company: '',
+          phone: '',
+          email: '',
+          dateTime: '',
+        },
         async fetch() {
           try {
             const sheet_id = "1nVO6-QRWNJsMC90Jwxe8yg3AglOMlAH_38xnc9LonrY";
@@ -965,7 +974,7 @@
             this.whatYouGain = this.rows[1][4] || "セミナーで得られること";
             this.informationRegulations = this.rows[1][5] || "個人情報の取り扱いについて";
             this.successApplyContent = this.rows[1][6] || "お申し込み完了";
-            
+            this.setFormTitle();
             this.setDateTimeOptions();
           } catch (error) {
             console.error("Error fetching data:", error);
@@ -974,10 +983,21 @@
         setDateTimeOptions() {
           const length = this.rows.length - 1;
           for (let index = 1; index <= length; index++) {
-            const option = this.rows[index][0];
-            this.dateTimeOptions.push(option);
+            if(this.rows[index][0]){
+              const option = this.rows[index][0];
+              this.dateTimeOptions.push(option);
+            }
+            
           }
         },
+        setFormTitle() {
+          this.formTitle.name = this.rows[1][7] || '氏名';
+          this.formTitle.nameKana = this.rows[2][7] || '氏名（フリガナ）';
+          this.formTitle.company = this.rows[3][7] || '会社名';
+          this.formTitle.phone = this.rows[4][7] || 'つながりやすい番号';
+          this.formTitle.email = this.rows[5][7] || 'メールアドレス';
+          this.formTitle.dateTime = this.rows[6][7] || '説明会参加日時';
+        }
       });
     });
   </script>
