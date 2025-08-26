@@ -208,12 +208,12 @@
       <div class="m-[1.875rem] mb-[1.25rem] sm:mt-[6.25rem] sm:ml-[15%]">
         <h2
           class="text-kd-16 text-kd-sm-30 font-m-plus mb-[0.25rem]"
-          x-text="$store.sheet.rows[1][2] || 'About the Seminar'"
+          x-text="$store.sheet.seminarEnTitle"
         ></h2>
         <div class="flex items-end">
           <h1
             class="text-kd-20 text-kd-sm-40 font-m-plus font-bold"
-            x-text="$store.sheet.rows[1][1] || 'セミナー概要'"
+            x-text="$store.sheet.seminarJpTitle"
           ></h1>
           <img
             src="assets/icons/rect.svg"
@@ -921,7 +921,7 @@
                     <p class="mt-5 md:mt-12.5 text-kd-10 text-kd-sm-20 font-medium whitespace-pre-line text-center" x-text="$store.sheet.successApplyContent"></p>
                     <div class="flex flex-col lg:flex-row items-center gap-x-12.5 gap-y-5 mt-5 sm:mt-12.5">
                       <a href="https://www.keding-global.com/ja/" class="block rounded-full w-fit px-5 py-2.5 bg-yellow text-black text-kd-16 text-kd-sm-30 font-medium">TOPに戻る</a>
-                      <a href="https://www.keding-global.com/ja/about-us/contact-us/" class="block rounded-full px-5 py-2.5 bg-black text-white text-kd-16 text-kd-sm-30 font-medium">お問い合わせ先</a>
+                      <a :href="$store.sheet.contactWayBtnLink" class="block rounded-full px-5 py-2.5 bg-black text-white text-kd-16 text-kd-sm-30 font-medium" x-text="$store.sheet.contactWayBtnText"></a>
                     </div>
                   </div>
                 </div>
@@ -945,11 +945,15 @@
     document.addEventListener("alpine:init", () => {
       Alpine.store("sheet", {
         rows: [],
+        seminarJpTitle: "",
+        seminarEnTitle: "",
         anchorToForm: "参加登録フォームへ",
         whatYouGain: "セミナーで得られること",
         dateTimeOptions: [''],
         informationRegulations: "個人情報の取り扱いについて",
         successApplyContent: "お申し込み完了",
+        contactWayBtnText: "お問い合わせ先",
+        contactWayBtnLink: "",
         formTitle: {
           name: '',
           nameKana: '',
@@ -970,12 +974,16 @@
             this.rows = json.table.rows.map((r) =>
               r.c.map((c) => (c ? c.v : ""))
             );
+            // about title
+            this.seminarJpTitle = this.rows[1][0] || 'セミナー概要'
+            this.seminarEnTitle = this.rows[1][1] || 'About the Seminar'
+            this.whatYouGain = this.rows[1][2] || "セミナーで得られること";
+            // about form
             this.anchorToForm = this.rows[1][3] || "参加登録フォームへ";
-            this.whatYouGain = this.rows[1][4] || "セミナーで得られること";
-            this.informationRegulations = this.rows[1][5] || "個人情報の取り扱いについて";
-            this.successApplyContent = this.rows[1][6] || "お申し込み完了";
-            this.setFormTitle();
-            this.setDateTimeOptions();
+            this.informationRegulations = this.rows[1][4] || "個人情報の取り扱いについて";
+            this.setFormTitle(); // this.row[...][5]
+            this.setDateTimeOptions(); // this.row[...][6]
+            this.setModalAfterApplyForm(); // this.row[...][7]
           } catch (error) {
             console.error("Error fetching data:", error);
           }
@@ -983,20 +991,25 @@
         setDateTimeOptions() {
           const length = this.rows.length - 1;
           for (let index = 1; index <= length; index++) {
-            if(this.rows[index][0]){
-              const option = this.rows[index][0];
+            if(this.rows[index][6]){
+              const option = this.rows[index][6];
               this.dateTimeOptions.push(option);
             }
             
           }
         },
         setFormTitle() {
-          this.formTitle.name = this.rows[1][7] || '氏名';
-          this.formTitle.nameKana = this.rows[2][7] || '氏名（フリガナ）';
-          this.formTitle.company = this.rows[3][7] || '会社名';
-          this.formTitle.phone = this.rows[4][7] || 'つながりやすい番号';
-          this.formTitle.email = this.rows[5][7] || 'メールアドレス';
-          this.formTitle.dateTime = this.rows[6][7] || '説明会参加日時';
+          this.formTitle.name = this.rows[1][5] || '氏名';
+          this.formTitle.nameKana = this.rows[2][5] || '氏名（フリガナ）';
+          this.formTitle.company = this.rows[3][5] || '会社名';
+          this.formTitle.phone = this.rows[4][5] || 'つながりやすい番号';
+          this.formTitle.email = this.rows[5][5] || 'メールアドレス';
+          this.formTitle.dateTime = this.rows[6][5] || '説明会参加日時';
+        },
+        setModalAfterApplyForm() {
+          this.successApplyContent = this.rows[1][7] || "お申し込み完了";
+          this.contactWayBtnText = this.rows[2][7] || "お問い合わせ先";
+          this.contactWayBtnLink = this.rows[3][7] || "https://www.keding-global.com/ja/about-us/contact-us/"
         }
       });
     });
