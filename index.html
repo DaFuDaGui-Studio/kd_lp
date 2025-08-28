@@ -798,6 +798,7 @@
                 class="w-full mt-2.5 px-2.5 sm:px-5 py-[7.5px] sm:py-2.5 border-2 border-gray focus:outline-0 font-medium text-gray placeholder:text-gray text-kd-10 text-kd-sm-20"
                 placeholder="例）0300001111"
                 x-model="form.phone"
+                @input="form.phone = form.phone.replace(/[^0-9]/g, '')"
               />
               <p x-show="errors.includes('phone-blank')" class="flex items-center gap-x-2 mt-2.5 text-[#FF0000] text-kd-10 text-kd-sm-20">
                 <img src="./assets/icons/warning.svg" class="size-4" /><span x-text="$store.sheet.formTitle.phone"></span>を入力してください。
